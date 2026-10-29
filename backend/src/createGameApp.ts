@@ -34,7 +34,13 @@ export function createGameApp(config: Config, logger: Logger): GameApp {
   );
   const gameServer = new GameServer(sessions, rooms, logger);
 
-  const httpServer = http.createServer(createApp({ corsOrigins: config.corsOrigins, rooms }));
+  const httpServer = http.createServer(
+    createApp({
+      corsOrigins: config.corsOrigins,
+      rooms,
+      ...(config.staticDir ? { staticDir: config.staticDir } : {}),
+    }),
+  );
   const transport = attachWebSocketTransport(httpServer, gameServer, logger, {
     messagesPerSecond: config.messagesPerSecond,
   });

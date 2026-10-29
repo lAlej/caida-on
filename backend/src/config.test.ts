@@ -33,6 +33,13 @@ describe('loadConfig', () => {
     });
   });
 
+  it('STATIC_DIR es opcional: sin ella no hay carpeta de la web', () => {
+    expect(loadConfig({})).not.toHaveProperty('staticDir');
+    expect(loadConfig({ STATIC_DIR: 'frontend/dist' })).toMatchObject({
+      staticDir: 'frontend/dist',
+    });
+  });
+
   it.each([
     ['puerto fuera de rango', { PORT: '70000' }],
     ['puerto no numérico', { PORT: 'abc' }],

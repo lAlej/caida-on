@@ -216,10 +216,12 @@ Reglas de referencia: `docs/REGLAS.md` (T31). Diseño: https://claude.ai/artifac
 - `README.md` (instalación, scripts, estructura, protocolo) y `docs/REGLAS.md` con las reglas v1.
 - **Listo cuando:** alguien nuevo puede levantar el proyecto siguiendo solo el README.
 
-### T32 · Compilación de producción · S · `[ ]`
+### T32 · Compilación de producción · S · `[x]`
 
 - `npm run build` de ambos paquetes y el backend sirviendo el frontend compilado. Opcional: Dockerfile.
 - **Listo cuando:** un solo proceso sirve la app compilada.
+
+> **Notas de T32:** el servidor se compila con esbuild a un único archivo (`backend/dist/index.js`, con `@caida/shared` incluido) y, si se define `STATIC_DIR`, también sirve la web. Si esa carpeta no existe, el servidor falla al arrancar con un mensaje claro. Los pasos para Render están en `docs/DEPLOY.md`. T31 (README y `docs/REGLAS.md`) sigue pendiente.
 
 ---
 

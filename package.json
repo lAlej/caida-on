@@ -11,7 +11,8 @@
   ],
   "scripts": {
     "dev": "concurrently -n backend,frontend -c blue,green \"npm run dev -w backend\" \"npm run dev -w frontend\"",
-    "build": "npm run build -w backend && npm run build -w frontend",
+    "build": "npm run build -w frontend && npm run build -w backend",
+    "start": "node --enable-source-maps backend/dist/index.js",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "lint": "eslint .",
@@ -19,7 +20,7 @@
     "format:check": "prettier --check ."
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22.12"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

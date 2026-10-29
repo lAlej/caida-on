@@ -12,6 +12,7 @@ const envSchema = z.object({
     .min(1)
     .default(5 * 60_000),
   MESSAGES_PER_SECOND: z.coerce.number().int().min(1).default(30),
+  STATIC_DIR: z.string().min(1).optional(),
   LOG_LEVEL: z.enum(LOG_LEVELS).default('info'),
 });
 
@@ -22,6 +23,8 @@ export interface Config {
   readonly roomIdleTimeoutMs: number;
   /** Mensajes que una conexión puede enviar por segundo antes de que se la cierre. */
   readonly messagesPerSecond: number;
+  /** Carpeta del frontend compilado. Si se indica, el servidor también sirve la web. */
+  readonly staticDir?: string;
   readonly logLevel: LogLevel;
 }
 
@@ -41,6 +44,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
     botDelayMs: values.BOT_DELAY_MS,
     roomIdleTimeoutMs: values.ROOM_IDLE_TIMEOUT_MS,
     messagesPerSecond: values.MESSAGES_PER_SECOND,
+    ...(values.STATIC_DIR ? { staticDir: values.STATIC_DIR } : {}),
     logLevel: values.LOG_LEVEL,
   };
 }
