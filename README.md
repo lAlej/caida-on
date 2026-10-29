@@ -6,6 +6,8 @@ Caída, el juego de cartas venezolano, para jugar en línea de 2 a 4 personas. S
 - El servidor es quien aplica las reglas: el navegador solo muestra y pide jugadas.
 - Reconexión automática: si recargas o pierdes la conexión, vuelves a tu asiento.
 
+**Demo en línea: <https://caida-on.onrender.com/>**. Está en el plan gratuito de Render: si lleva un rato sin visitas, la primera carga puede tardar casi un minuto.
+
 Las reglas están en [`docs/REGLAS.md`](docs/REGLAS.md).
 
 ## Requisitos

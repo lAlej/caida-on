@@ -39,8 +39,9 @@ export function createApp({ corsOrigins, rooms, staticDir }: AppOptions): Expres
 
 /**
  * Sirve la web compilada. Los archivos con nombre único (`/assets/...`) se guardan un año en la
- * caché del navegador; `index.html` nunca, para que una versión nueva se vea enseguida.
- * Cualquier otra ruta de navegación devuelve `index.html`.
+ * caché del navegador; `index.html` y los archivos de la raíz (favicon, iconos) siempre se
+ * revalidan, para que una versión nueva se vea enseguida. Cualquier otra ruta de navegación
+ * devuelve `index.html`.
  */
 function serveFrontend(app: Express, root: string): void {
   if (!existsSync(path.join(root, 'index.html'))) {
@@ -53,11 +54,10 @@ function serveFrontend(app: Express, root: string): void {
   app.use(
     express.static(root, {
       setHeaders: (res, filePath) => {
+        const hasHashedName = path.relative(root, filePath).startsWith(`assets${path.sep}`);
         res.setHeader(
           'Cache-Control',
-          filePath.endsWith('.html')
-            ? 'no-cache'
-            : `public, max-age=${ONE_YEAR_SECONDS}, immutable`,
+          hasHashedName ? `public, max-age=${ONE_YEAR_SECONDS}, immutable` : 'no-cache',
         );
       },
     }),

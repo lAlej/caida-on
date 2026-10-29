@@ -14,6 +14,7 @@ beforeAll(() => {
   mkdirSync(path.join(staticDir, 'assets'));
   writeFileSync(path.join(staticDir, 'index.html'), '<!doctype html><title>Caída</title>');
   writeFileSync(path.join(staticDir, 'assets', 'app-abc123.js'), 'console.log("hola");');
+  writeFileSync(path.join(staticDir, 'favicon.svg'), '<svg xmlns="http://www.w3.org/2000/svg" />');
 });
 
 afterAll(() => {
@@ -49,6 +50,12 @@ describe('app · web compilada', () => {
     const response = await fetch(`${await start(true)}/assets/app-abc123.js`);
     expect(response.status).toBe(200);
     expect(response.headers.get('cache-control')).toBe('public, max-age=31536000, immutable');
+  });
+
+  it('los archivos de la raíz (favicon) se revalidan siempre', async () => {
+    const response = await fetch(`${await start(true)}/favicon.svg`);
+    expect(response.status).toBe(200);
+    expect(response.headers.get('cache-control')).toBe('no-cache');
   });
 
   it('cualquier otra ruta de navegación devuelve index.html', async () => {
