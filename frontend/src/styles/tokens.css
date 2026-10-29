@@ -1,0 +1,40 @@
+:root {
+  /* Superficies */
+  --color-bg: #0a211d;
+  --color-panel: #123a32;
+  --color-panel-deep: #0d2f28;
+  --color-line: rgba(244, 235, 214, 0.14);
+  --color-felt-light: #1b5a4d;
+  --color-felt: #14463c;
+  --color-felt-dark: #0f362e;
+  --color-wood: #3a2718;
+
+  /* Texto */
+  --color-text: #f4ebd6;
+  --color-muted: #a9bdb3;
+  --color-ink: #1e1a16;
+
+  /* Acentos */
+  --color-gold: #f0b840;
+  --color-coral: #f07b5c;
+  --color-ok: #2f8f6f;
+
+  /* Cartas */
+  --card-face: #f4ebd6;
+  --card-back: #8e2f22;
+  --suit-oros: #9a6406;
+  --suit-copas: #b8322a;
+  --suit-espadas: #25508f;
+  --suit-bastos: #2b6e45;
+
+  /* Tipografía */
+  --font-display: 'Alfa Slab One', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Formas */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --touch-target: 44px;
+}

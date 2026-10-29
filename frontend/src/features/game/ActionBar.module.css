@@ -1,0 +1,18 @@
+.bar {
+  display: flex;
+  flex: 1 1 260px;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  max-width: 340px;
+}
+
+/* Alto de dos líneas reservado, haya mensaje o no, para que el tablero no salte. */
+.status {
+  min-height: 62px;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  background: rgba(10, 33, 29, 0.75);
+  font-size: 15px;
+  line-height: 1.4;
+}

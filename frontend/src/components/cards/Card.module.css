@@ -1,0 +1,144 @@
+.card {
+  --w: 78px;
+  --h: 110px;
+  position: relative;
+  display: inline-block;
+  flex: none;
+  width: var(--w);
+  height: var(--h);
+  overflow: hidden;
+  border-radius: calc(var(--w) * 0.1);
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.25),
+    0 6px 14px rgba(0, 0, 0, 0.28);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.xs {
+  --w: 38px;
+  --h: 54px;
+}
+
+.sm {
+  --w: 54px;
+  --h: 76px;
+}
+
+.md {
+  --w: 78px;
+  --h: 110px;
+}
+
+.lg {
+  --w: 100px;
+  --h: 140px;
+}
+
+.face {
+  background: var(--card-face);
+  border: 1px solid rgba(30, 26, 22, 0.4);
+}
+
+.back {
+  background: var(--card-back);
+  border: 1px solid #4a150e;
+}
+
+.back::after {
+  content: '';
+  position: absolute;
+  inset: calc(var(--w) * 0.09);
+  border: 1.5px solid rgba(244, 235, 214, 0.7);
+  border-radius: calc(var(--w) * 0.07);
+  background:
+    repeating-linear-gradient(45deg, rgba(244, 235, 214, 0.22) 0 2px, transparent 2px 8px),
+    repeating-linear-gradient(-45deg, rgba(244, 235, 214, 0.22) 0 2px, transparent 2px 8px);
+}
+
+.corner {
+  position: absolute;
+  top: calc(var(--w) * 0.09);
+  left: calc(var(--w) * 0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--w) * 0.03);
+  line-height: 1;
+}
+
+.rank {
+  color: var(--color-ink);
+  font-size: calc(var(--h) * 0.2);
+}
+
+.pip {
+  width: calc(var(--w) * 0.24);
+  height: calc(var(--w) * 0.24);
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--w) * 0.5);
+  height: calc(var(--w) * 0.5);
+  transform: translate(-50%, -50%);
+}
+
+.label {
+  position: absolute;
+  right: 0;
+  bottom: calc(var(--h) * 0.05);
+  left: 0;
+  font-family: var(--font-body);
+  font-size: calc(var(--h) * 0.075);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.oros {
+  color: var(--suit-oros);
+}
+
+.copas {
+  color: var(--suit-copas);
+}
+
+.espadas {
+  color: var(--suit-espadas);
+}
+
+.bastos {
+  color: var(--suit-bastos);
+}
+
+.selected {
+  transform: translateY(-14px);
+  box-shadow:
+    0 0 0 3px var(--color-gold),
+    0 14px 22px rgba(0, 0, 0, 0.45);
+}
+
+.hit {
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 0 3px var(--color-gold),
+    0 0 18px rgba(240, 184, 64, 0.6);
+}
+
+.last {
+  box-shadow:
+    0 0 0 3px var(--color-coral),
+    0 6px 14px rgba(0, 0, 0, 0.28);
+}
+
+.dim {
+  opacity: 0.45;
+}

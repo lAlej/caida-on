@@ -1,0 +1,26 @@
+.badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  max-width: 190px;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.badge strong {
+  font-size: 14px;
+}
+
+.wins {
+  background: var(--color-coral);
+  color: var(--color-ink);
+}
+
+.loses {
+  background: rgba(244, 235, 214, 0.14);
+  color: var(--color-muted);
+}

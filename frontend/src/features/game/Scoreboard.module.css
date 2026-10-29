@@ -1,0 +1,68 @@
+.panel {
+  padding: 18px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-panel);
+}
+
+.title {
+  margin-bottom: 14px;
+  color: var(--color-muted);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.name {
+  overflow: hidden;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.points {
+  color: var(--color-muted);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.points strong {
+  color: var(--color-text);
+  font-size: 16px;
+}
+
+.bar {
+  display: flex;
+  height: 10px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: rgba(244, 235, 214, 0.1);
+}
+
+.fill {
+  background: var(--color-gold);
+  transition: width 0.3s ease;
+}
+
+.pending {
+  background: repeating-linear-gradient(135deg, var(--color-coral) 0 4px, #8a3b27 4px 8px);
+  transition: width 0.3s ease;
+}

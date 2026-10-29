@@ -1,0 +1,17 @@
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 16px;
+  padding: 10px 16px;
+  background: var(--color-coral);
+  color: var(--color-ink);
+  font-weight: 700;
+  text-align: center;
+}
+
+.banner button {
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+}
